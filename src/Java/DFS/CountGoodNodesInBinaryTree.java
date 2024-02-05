@@ -7,12 +7,15 @@ import java.util.*;
 
 public class CountGoodNodesInBinaryTree {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(1);
-        root.left.left = new TreeNode(3);
-        root.right = new TreeNode(4);
-        root.right.left = new TreeNode(1);
-        root.right.right = new TreeNode(5);
+//        TreeNode root = new TreeNode(3);
+//        root.left = new TreeNode(1);
+//        root.left.left = new TreeNode(3);
+//        root.right = new TreeNode(4);
+//        root.right.left = new TreeNode(1);
+//        root.right.right = new TreeNode(5);
+        TreeNode root = new TreeNode(9);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(6);
 
         System.out.println(goodNodes(root));
     }
@@ -39,6 +42,8 @@ public class CountGoodNodesInBinaryTree {
 
         traversal(node.left, arr, goodNodes);
         traversal(node.right, arr, goodNodes);
+
+        arr.remove((Integer) node.val);
     }
 
     private static boolean checkIfGood(TreeNode node, ArrayList<Integer> arr) {
